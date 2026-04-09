@@ -27,7 +27,9 @@ export async function GET(req: NextRequest) {
   // "have" posts first (h < w alphabetically), newest first within each group
   const sort: any = filter.type ? { createdAt: -1 } : { type: 1, createdAt: -1 };
   const posts = await Post.find(filter).sort(sort).lean();
-  return NextResponse.json(posts);
+  return NextResponse.json(posts, {
+    headers: { "Cache-Control": "s-maxage=10, stale-while-revalidate=59" },
+  });
 }
 
 export async function POST(req: NextRequest) {

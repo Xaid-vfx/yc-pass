@@ -22,5 +22,10 @@ const PostSchema = new Schema<IPost>({
   createdAt: { type: Date, default: Date.now },
 });
 
+// Compound index for the main feed query (type asc, newest first)
+PostSchema.index({ type: 1, createdAt: -1 });
+// Index for the per-user duplicate check
+PostSchema.index({ authorId: 1 });
+
 export default mongoose.models.Post ||
   mongoose.model<IPost>("Post", PostSchema);
