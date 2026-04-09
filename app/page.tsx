@@ -81,22 +81,35 @@ export default function Home() {
         </div>
 
         {/* Stats */}
-        {!loading && (
-          <div className="flex gap-3 mb-6">
-            <div className="flex-1 bg-green-50 border border-green-100 rounded-xl p-4 text-center">
-              <p className="text-2xl font-bold text-green-700">{passesAvailable}</p>
-              <p className="text-xs text-green-600 mt-0.5">
-                {passesAvailable === 1 ? "Pass available" : "Passes available"}
-              </p>
-            </div>
-            <div className="flex-1 bg-orange-50 border border-orange-100 rounded-xl p-4 text-center">
-              <p className="text-2xl font-bold text-orange-700">{passesWanted}</p>
-              <p className="text-xs text-orange-600 mt-0.5">
-                {passesWanted === 1 ? "Person looking" : "People looking"}
-              </p>
-            </div>
-          </div>
-        )}
+        <div className="flex gap-3 mb-6">
+          {loading ? (
+            <>
+              <div className="flex-1 bg-green-50 border border-green-100 rounded-xl p-4 text-center animate-pulse">
+                <div className="h-8 bg-green-200 rounded w-10 mx-auto mb-1" />
+                <div className="h-3 bg-green-200 rounded w-24 mx-auto" />
+              </div>
+              <div className="flex-1 bg-orange-50 border border-orange-100 rounded-xl p-4 text-center animate-pulse">
+                <div className="h-8 bg-orange-200 rounded w-10 mx-auto mb-1" />
+                <div className="h-3 bg-orange-200 rounded w-24 mx-auto" />
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="flex-1 bg-green-50 border border-green-100 rounded-xl p-4 text-center">
+                <p className="text-2xl font-bold text-green-700">{passesAvailable}</p>
+                <p className="text-xs text-green-600 mt-0.5">
+                  {passesAvailable === 1 ? "Pass available" : "Passes available"}
+                </p>
+              </div>
+              <div className="flex-1 bg-orange-50 border border-orange-100 rounded-xl p-4 text-center">
+                <p className="text-2xl font-bold text-orange-700">{passesWanted}</p>
+                <p className="text-xs text-orange-600 mt-0.5">
+                  {passesWanted === 1 ? "Person looking" : "People looking"}
+                </p>
+              </div>
+            </>
+          )}
+        </div>
 
         {/* Actions row */}
         <div className="flex items-center justify-between mb-4 gap-2">
