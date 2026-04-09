@@ -23,7 +23,10 @@ export async function GET(req: NextRequest) {
   const filter: any = {};
   if (type === "want" || type === "have") filter.type = type;
 
-  const posts = await Post.find(filter).sort({ createdAt: -1 }).lean();
+  // "have" posts always sorted above "want" posts, newest first within each group
+  // "have" posts first (h < w alphabetically), newest first within each group
+  const sort: any = filter.type ? { createdAt: -1 } : { type: 1, createdAt: -1 };
+  const posts = await Post.find(filter).sort(sort).lean();
   return NextResponse.json(posts);
 }
 
