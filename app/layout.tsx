@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: "YC Pass",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.jpg",
         width: 1512,
         height: 756,
         alt: "YC Startup School India — April 18, Bengaluru",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "YC Pass — Share your YC Startup School India seat",
     description:
       "Can't make it to YC Startup School India on April 18th, Bengaluru? Pass your seat to someone who deserves it.",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
 };
 

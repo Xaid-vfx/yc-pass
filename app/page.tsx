@@ -99,13 +99,13 @@ export default function Home() {
         )}
 
         {/* Actions row */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex gap-1 bg-gray-100 rounded-lg p-1">
+        <div className="flex items-center justify-between mb-4 gap-2">
+          <div className="flex gap-1 bg-gray-100 rounded-lg p-1 overflow-x-auto flex-shrink min-w-0">
             {filters.map((f) => (
               <button
                 key={f.value}
                 onClick={() => setFilter(f.value)}
-                className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                className={`px-2.5 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                   filter === f.value
                     ? "bg-white text-gray-900 shadow-sm"
                     : "text-gray-500 hover:text-gray-700"
